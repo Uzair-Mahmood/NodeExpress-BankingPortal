@@ -17,6 +17,7 @@ router.get('/payment', (req, res) => {
   res.render('payment', { account: accounts.credit });
 })
   .post('/payment', (req, res) => {
+    console.log(req.body);
     accounts.credit.balance -= req.body.amount;
     accounts.credit.available = parseInt(accounts.credit.available, 10) + parseInt(req.body.amount, 10);
     writeJSON();
